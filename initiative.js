@@ -3,24 +3,24 @@ function Encounter(title){
 
 	this.title = name;
 	this.round = 0;
-	this.turnlist = [];
+	this.charList = [];
 
 	this.addChar = function(name, initiative){
 		var newChar = new Char(name, initiative);
-		this.turnlist.push(newChar);
+		this.charList.push(newChar);
 	};
 
 	this.logChars = function(){
-		for(var i = 0; i < self.turnlist.length; i++){
-			console.log(self.turnlist[i]);
+		for(var i = 0; i < self.charList.length; i++){
+			console.log(self.charList[i]);
 		}
 	};
 
 	this.sortChars = function(){
-		this.turnlist.sort(function(a,b){
+		this.charList.sort(function(a,b){
 			return a.initiative - b.initiative;
 		});
-		console.log(self.turnlist);
+		console.log(self.charList);
 	};
 
 }
@@ -28,11 +28,14 @@ function Encounter(title){
 function Char(name, initiative){
 	this.name = name;
 	this.initiative = initiative;
-
-	// this.movementComplete = false;
-	// this.actionComplete = false;
-	// this.bonusActionComplete = false;
+	this.turns = [];
 }
+
+// function Turn(){
+// 	this.movementComplete = false;
+// 	this.actionComplete = false;
+// 	this.bonusActionComplete = false;
+// }
 
 var battle = new Encounter("battle");
 
