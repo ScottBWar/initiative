@@ -37,6 +37,9 @@ function Char(name, initiative){
 	this.name = name;
 	this.initiative = initiative;
 	this.turns = [];
+
+	this.isEnemy = false;
+	this.isNPC = false;
 }
 
 // function Turn(){
