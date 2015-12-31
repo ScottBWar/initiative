@@ -20,7 +20,15 @@ function Encounter(title){
 		this.charList.sort(function(a,b){
 			return a.initiative - b.initiative;
 		});
-		console.log(self.charList);
+	};
+
+	this.populateHTML = function(){
+		var listContainer = $("#theList");
+		var html = "";
+		for(var i = self.charList.length - 1; i >= 0; i--){
+			html += "<h3>" + self.charList[i].name + "  " + self.charList[i].initiative + "</h3>";
+		}
+		listContainer.html(html);
 	};
 
 }
@@ -42,9 +50,6 @@ var battle = new Encounter("battle");
 $("#addCharButton").click(function(e){
 	battle.addChar($("#name").val(),$("#roll").val());
 	battle.sortChars();
-	battle.logChars();
+	battle.populateHTML();
 });
-
-
-
 
