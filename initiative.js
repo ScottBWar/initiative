@@ -39,16 +39,11 @@ function Char(name, initiative){
 
 var battle = new Encounter("battle");
 
-battle.addChar("Dmitri", 10);
-battle.addChar("Mariah", 12);
-battle.addChar("Alfadore", 1);
-battle.addChar("Jethro", 13);
-battle.addChar("Van Richten",20);
-
-battle.logChars();
-battle.sortChars();
-battle.logChars();
-
+$("#addCharButton").click(function(e){
+	battle.addChar($("#name").val(),$("#roll").val());
+	battle.sortChars();
+	battle.logChars();
+});
 
 
 
